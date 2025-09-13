@@ -17,15 +17,11 @@ The projects are arranged in increasing order of difficulty – starting from ba
 
 ### 🔹 Level 3: Loops + Functions + File Handling  
 5. Quiz Game  
-6. Expense Tracker  
+
 
 ### 🔹 Level 4: Mini Games (Logic Practice)  
-7. Hangman Game  
-8. Tic Tac Toe (2-player)  
+6. Tic Tac Toe (2-player)  
 
-### 🔹 Level 5: Slightly Bigger Console Projects  
-9. Library Management System  
-10. Student Report Card System  
 
 ---
 
