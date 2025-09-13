@@ -1,46 +1,49 @@
 def main():
     tasks = []
     while True:
-        print("TO DO LIST")
-        print("1.  ADD task")
-        print("2.  SHOW tasks")
-        print("3.  MARKDOWN as done")
-        print("4.  EXIT")
+        print("\n------ TASK MANAGER -----")
+        print("1. Add task")
+        print("2. Show tasks")
+        print("3. Mark task as done")
+        print("4. Exit")
         
-        choice = input("Enter your choice: ")       
+        choice = input("Enter number: ")
         
-        if choice == "1":
-            print()
-            n_tasks = int(input("how many tasks do you want to add:"))
-            
-            for i in range(n_tasks):
-                task = input("Enter your task: ") 
-                tasks.append({"task": task , "status": False}) #key and value pairs 
-                print('Task added !')
-                
+        if choice == '1':
+            how_many = int(input("How many tasks you want to add? "))
+            for i in range(how_many):
+                t1 = input("Enter your task: ")
+                tasks.append({"task": t1, "status": False})
+            print("Tasks added!")
+
         elif choice == '2':
-            print("\nTasks:")
-            for index, task in enumerate(tasks):
-                status = "Done" if task["done"] else "Not Done"
-                print(f"{index + 1}. {task['task']} - {status}")
+            if not tasks:
+                print("\nNo tasks available. Add some first!")
+            else:
+                print("\n--- YOUR TASKS ---")
+                for idx, task in enumerate(tasks, start=1):
+                    status = "✅ Done" if task["status"] else "❌ Not done"
+                    print(f"{idx}. {task['task']} [{status}]")
+                print("------------------")
 
         elif choice == '3':
-            task_index = int(input("Enter the task number to mark as done: ")) - 1
-            if 0 <= task_index < len(tasks):
-                tasks[task_index]["done"] = True
-                print("Task marked as done!")
+            if not tasks:
+                print("No tasks available to mark as done.")
             else:
-                print("Invalid task number.")
-                
-        elif choice == '4':        
-            print("Exiting the TO-DO List")
-            break
-        
-        else:
-            print('Invalid choice')
-            
-            
-if __name__ == "__main__":
+                task_num = int(input("Enter the task number to mark as done: "))
+                if 1 <= task_num <= len(tasks):
+                    tasks[task_num - 1]["status"] = True
+                    print(f"Task '{tasks[task_num - 1]['task']}' marked as done ✅")
+                else:
+                    print("Invalid task number!")
 
+        elif choice == '4':
+            print("Exiting Task Manager. Goodbye!")
+            break
+
+        else:
+            print("Invalid Number. Please try again.")
+            
+
+if __name__ == "__main__":
     main()
-    
